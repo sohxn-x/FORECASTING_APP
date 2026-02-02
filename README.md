@@ -75,8 +75,7 @@ Installed via `package.json`:
 
 ### 3.1 Backend Setup (Flask)
 #### Step 1: Create & activate venv
-**Windows (PowerShell)**
-```powershell
+
 cd energy_app
 python -m venv .venv
 .\.venv\Scripts\activate
