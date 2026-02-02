@@ -1,0 +1,178 @@
+/* Base */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f8;
+    color: #333;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #212529;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.navbar .toggle-btn {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.navbar .toggle-btn:hover {
+    background-color: #666;
+}
+
+/* Layout */
+.layout {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: calc(100vh - 80px);
+}
+
+.sidebar {
+    background-color: #343a40;
+    color: white;
+    width: 300px;
+    padding: 2rem 1.5rem;
+    box-sizing: border-box;
+}
+
+.sidebar input,
+.sidebar select,
+.sidebar button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.2rem;
+    border: none;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.sidebar button {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.sidebar button:hover {
+    background-color: #218838;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 2rem;
+    box-sizing: border-box;
+    min-width: 300px;
+}
+
+/* Cards */
+.card {
+    background-color: white;
+    padding: 1.8rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2.5rem;
+    transition: background 0.3s ease;
+}
+
+body.dark .card {
+    background-color: #2a2a2a;
+    color: white;
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+
+.forecast-plot {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 1rem;
+    border: 1px solid #ccc;
+}
+
+/* Grid Menu */
+.grid-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 16px;
+    margin-top: 1.2rem;
+}
+
+.card-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: #e8e8e8;
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #222;
+    transition: transform 0.25s ease, background-color 0.25s;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card-button i {
+    font-size: 1.1rem;
+}
+
+.card-button:hover {
+    transform: translateY(-4px);
+    background-color: #dcdcdc;
+    color: #000;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+    background-color: #f1f1f1;
+    margin-top: auto;
+}
+
+body.dark .footer {
+    background-color: #222;
+    color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .grid-menu {
+        grid-template-columns: 1fr;
+    }
+}

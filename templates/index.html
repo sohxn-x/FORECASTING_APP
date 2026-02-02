@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Steel Forecast Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">🔍 Steel Forecast Dashboard</div>
+        <div class="controls">
+            <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <h2>📂 Upload & Forecast</h2>
+            <form method="POST" action="/" enctype="multipart/form-data">
+                <input type="file" name="csv_file" accept=".csv" required>
+                <select name="plant" required>
+                    <option disabled selected>Select a Plant</option>
+                    <option value="RSP">RSP</option>
+                    <option value="ISP">ISP</option>
+                    <option value="BSP">BSP</option>
+                    <option value="DSP">DSP</option>
+                    <option value="BSL">BSL</option>
+                    <option value="SAIL">SAIL</option>
+                    <option value="All Plants Avg">All Plants Avg</option>
+                </select>
+                <button type="submit">Run Forecast</button>
+            </form>
+        </aside>
+
+        <main class="content">
+            {% if result %}
+            <div class="card">
+                <h3>📊 Forecast for {{ plant_name }}</h3>
+                <p>{{ result|safe }}</p>
+                {% if plot_path %}
+                <img class="forecast-plot" src="/static/{{ plot_path }}?t={{ now }}" alt="Forecast Plot">
+                {% endif %}
+            </div>
+            {% else %}
+            <div class="card">
+                <h3>📌 Welcome!</h3>
+                <p>Upload a dataset and select a plant to generate a forecast for the next 5 years using an advanced LSTM and ARIMA model.</p>
+            </div>
+            {% endif %}
+
+            <div class="card">
+                <h3><i class="fa-solid fa-layer-group"></i> Static Forecasts & Clustering</h3>
+                <div class="grid-menu">
+                    <a class="card-button" href="/clustering"><i class="fa-solid fa-diagram-project"></i> Clustering</a>
+                    <a class="card-button" href="/cluster0"><i class="fa-solid fa-object-group"></i> Cluster 0</a>
+                    <a class="card-button" href="/cluster1"><i class="fa-solid fa-object-group"></i> Cluster 1</a>
+                    <a class="card-button" href="/all"><i class="fa-solid fa-layer-group"></i> All Plants</a>
+                    <a class="card-button" href="/historical"><i class="fa-solid fa-clock"></i> Historical Overlay</a>
+                    <a class="card-button" href="/comparison"><i class="fa-solid fa-chart-bar"></i> Cluster Comparison</a>
+                    <a class="card-button" href="/plant/rsp"><i class="fa-solid fa-industry"></i> RSP</a>
+                    <a class="card-button" href="/plant/isp"><i class="fa-solid fa-industry"></i> ISP</a>
+                    <a class="card-button" href="/plant/bsp"><i class="fa-solid fa-industry"></i> BSP</a>
+                    <a class="card-button" href="/plant/dsp"><i class="fa-solid fa-industry"></i> DSP</a>
+                    <a class="card-button" href="/plant/bsl"><i class="fa-solid fa-industry"></i> BSL</a>
+                    <a class="card-button" href="/plant/sail"><i class="fa-solid fa-industry"></i> SAIL</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        Built by Harsh Sharma • IIT Kharagpur • 2025
+    </footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    /* ---- Core settings ---- */
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "jsx": "react-jsx",
+
+    /* ---- Module resolution ---- */
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+
+    /* ---- Type checking ---- */
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+
+    /* ---- Paths ---- */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    /* ---- Type roots (fixes babel__generator error) ---- */
+    "typeRoots": ["./node_modules/@types"]
+  },
+
+  /* ---- Included files ---- */
+  "include": ["src"],
+
+  /* ---- Excluded files ---- */
+  "exclude": ["node_modules", "dist", "**/node_modules/*"]
+}

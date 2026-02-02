@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">📈 Energy Forecast Report</div>
+        <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    </header>
+
+    <main class="content">
+        <div class="card">
+            <h2>{{ title }}</h2>
+            {% if image %}
+                <img class="forecast-plot" src="{{ url_for('static', filename=image) }}?t={{ now | default(0) }}" alt="Forecast Plot">
+            {% else %}
+                <p>No forecast image available.</p>
+            {% endif %}
+        </div>
+
+        {% if description %}
+        <div class="card">
+            <h3><i class="fa-solid fa-circle-info"></i> How This Forecast Was Generated</h3>
+            <p style="line-height: 1.7;">{{ description | safe }}</p>
+        </div>
+        {% endif %}
+
+        <div class="card">
+            <a href="/" class="card-button"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        Generated using Hybrid ARIMA + LSTM Model | IIT Kharagpur | 2025
+    </footer>
+</body>
+</html>
