@@ -1,6 +1,6 @@
 # Steel Industry Insights India — Energy Forecasting Platform
 
-A full-stack web application for forecasting energy consumption trends (Gcal/tcs) for Indian steel plants using an LSTM time-series model.  
+A full-stack web application for forecasting energy consumption trends (Gcal/tcs) for Indian steel plants using an LSTM and ARIMA time-series model.  
 Frontend: **React + Vite + TypeScript + Tailwind + Shadcn UI**  
 Backend: **Flask + Pandas + TensorFlow/Keras + Matplotlib**
 
@@ -13,10 +13,10 @@ energy_app/
 │
 ├─ app.py
 ├─ static/
-│ └─ uploads/ # Generated forecast plots are saved here
+│ └─ uploads/ 
 │
-├─ forecast/ # (Optional) your static forecast generation scripts (if any)
-├─ comparison/ # (Optional) comparison scripts (if any)
+├─ forecast/
+├─ comparison/ 
 │
 └─ frontend/ # React + Vite Frontend
 ├─ index.html
@@ -42,7 +42,7 @@ energy_app/
 │
 └─ public/
 ├─ favicon.svg
-└─ backgrounds/ # Background slideshow images (add your images here)
+└─ backgrounds/ 
 
 
 ---
